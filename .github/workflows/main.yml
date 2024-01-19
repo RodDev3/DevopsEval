@@ -21,3 +21,5 @@ jobs:
         tools: composer:v2
     - name: "Install dependencies"
       run: composer install --ansi --no-interaction --no-progress
+    - name: "Lancement des tests"
+      run: .\vendor\bin\phpunit --coverage-html coverage --coverage-clover coverage/clover.xml
