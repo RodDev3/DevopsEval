@@ -1,17 +1,26 @@
 version: '3'
 
 services:
-    app:
-        build:
-            context: .
-        ports:
-        - "8080:80"
-        volumes:
-        - .:/var/www/html
+  app:
+    build:
+      context: .
+    ports:
+    - "8080:80"
+    volumes:
+    - .:/var/www/html
 
-    test:
-        build:
-            context: .
-        command: ["php", "vendor/bin/phpunit"]
-        volumes:
-        - .:/var/www/html
+  test:
+    build:
+      context: .
+    command: [ "php", "vendor/bin/phpunit" ]
+    volumes:
+    - .:/var/www/html
+
+  database:
+    build:
+      context: .
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: eval_database
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_password
