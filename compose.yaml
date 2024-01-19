@@ -17,8 +17,7 @@ services:
     - .:/var/www/html
 
   database:
-    build:
-      context: .
+    image: 'mysql:8.0'
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: eval_database
